@@ -1,0 +1,68 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#dial {
+  display: grid;
+  width: 450px;
+  height: 450px;
+  border: 10px solid gold;
+  border-radius: 450px;
+  background: #e4bc7c;
+  grid-template-columns: repeat(5, 90px);
+  grid-template-rows: repeat(5, 90px);
+  grid-template-areas:
+    ". . north . ."
+    ". . . . ."
+    "west . needle . east"
+    ". . . . ."
+    ". . south . .";
+}
+
+.cardinal {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: auto 0;
+}
+
+#N {
+  grid-area: north;
+}
+
+#E {
+  grid-area: east;
+}
+
+#S {
+  grid-area: south;
+}
+
+#W {
+  grid-area: west;
+}
+
+#needle {
+  grid-area: needle;
+  width: 0;
+  height: 0;
+  border: 30px solid transparent;
+  border-bottom: 150px solid red;
+  position: relative;
+  margin: auto;
+  top: -150%;
+  transform-origin: bottom;
+}
+
+#needle:after {
+  content: "";
+  position: relative;
+  left: -30px;
+  top: 300px;
+  width: 0;
+  height: 0;
+  border: 30px solid transparent;
+  border-top: 150px solid grey;
+}
